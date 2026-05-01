@@ -1,0 +1,49 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Hero Section -->
+<section class="text-center py-16 bg-indigo-50">
+    <h2 class="text-4xl font-bold mb-4">Discover Inspiring Stories</h2>
+    <p class="text-gray-600 max-w-xl mx-auto">
+        Read articles from passionate writers around the world.
+    </p>
+</section>
+
+<!-- Article Grid -->
+<div class="max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-3 gap-8">
+
+    {% for article in articles %}
+    <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition duration-300 overflow-hidden">
+
+        {% if article.image %}
+        <img src="{{ article.image.url }}" alt="Article Image" loading="lazy">
+        {% else %}
+        <img src="{% static 'images/default.jpg' %}" alt="Default Image" loading="lazy">
+        {% endif %}
+
+        <div class="p-6">
+            <span class="text-sm text-indigo-600 font-semibold">
+                {{ article.category }}
+            </span>
+
+            <h3 class="text-xl font-bold mt-2 mb-3 hover:text-indigo-600 cursor-pointer">
+                {{ article.title }}
+            </h3>
+
+            <p class="text-gray-600 text-sm mb-4">
+                {{ article.content|truncatewords:20 }}
+            </p>
+
+            <div class="flex justify-between items-center text-sm text-gray-500">
+                <span>By {{ article.author }}</span>
+                <span>{{ article.created_at }}</span>
+            </div>
+        </div>
+
+    </div>
+    {% endfor %}
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="max-w-5xl mx-auto px-6 py-12">
+
+    <h2 class="text-3xl font-bold mb-8">
+        All Articles
+    </h2>
+
+    <div class="bg-white shadow rounded-lg overflow-hidden">
+
+        <table class="w-full text-left">
+
+            <thead class="bg-gray-100 border-b">
+                <tr>
+                    <th class="p-4 font-semibold">Title</th>
+                    <th class="p-4 font-semibold">Author</th>
+                    <th class="p-4 font-semibold">Category</th>
+                    <th class="p-4 font-semibold">Created</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                {% for article in articles %}
+                <tr class="border-b hover:bg-gray-50">
+                    <td class="p-4 font-medium text-indigo-600 hover:underline">
+                        <a href = "{% url 'article-detail' article.id %}">
+                        {{ article.title }}
+                        </a>
+                    </td>
+
+                    <td class="p-4">
+                        {{ article.author }}
+                    </td>
+
+                    <td class="p-4">
+                        {{ article.category }}
+                    </td>
+
+                    <td class="p-4 text-gray-500">
+                        {{ article.created_at|date:"M d, Y" }}
+                    </td>
+                    <td class="p-4 text-gray-500">
+                        <a href = "{% url 'update-article' article.id %}">Update</a>
+
+                    </td>
+                </tr>
+                {% empty %}
+
+                <tr>
+                    <td colspan="4" class="p-6 text-center text-gray-500">
+                        No articles found
+                    </td>
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+{% endblock %}

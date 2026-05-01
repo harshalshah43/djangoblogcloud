@@ -1,0 +1,53 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+
+<div class="min-h-screen flex items-center justify-center">
+
+    <div class="bg-white shadow-lg rounded-xl p-8 w-full max-w-md">
+
+        <h2 class="text-2xl font-bold text-center text-indigo-600 mb-6">
+            Login to Your Account
+        </h2>
+
+        <form method="POST" class="space-y-4">
+            {% csrf_token %}
+
+            <!-- Username -->
+            <div>
+                <label class="block text-sm font-medium mb-1">Username</label>
+                {{ form.username }}
+            </div>
+
+            <!-- Password -->
+            <div>
+                <label class="block text-sm font-medium mb-1">Password</label>
+                {{ form.password }}
+            </div>
+
+            <!-- Forgot Password -->
+            <div class="text-right">
+                <a href="{% url 'password_reset' %}" class = "text-sm text-indigo-600 hover:underline">Forgot Password?</a>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit"
+                class="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition">
+                Login
+            </button>
+
+        </form>
+
+        <!-- Signup Redirect -->
+        <p class="text-sm text-gray-600 text-center mt-4">
+            Don't have an account?
+            <a href="{% url 'register' %}" class="text-indigo-600 hover:underline">
+                Sign Up
+            </a>
+        </p>
+
+    </div>
+
+</div>
+
+{% endblock %}
