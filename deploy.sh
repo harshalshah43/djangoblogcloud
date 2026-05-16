@@ -35,7 +35,7 @@ if [ ! -d "$VENV_DIR" ]; then
     echo "Virtualenv not found."
     echo "Creating virtualenv..."
 
-    python3 -m venv "$VENV_DIR"
+    python3.12 -m venv "$VENV_DIR"
 else
     echo "Virtualenv already exists."
 fi
