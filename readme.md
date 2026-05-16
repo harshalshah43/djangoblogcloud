@@ -26,10 +26,10 @@
     - paste deploy.sh code in there (pushed to the repo)
     - save and exit
     - chmod +x deploy.sh
+    - run ./deploy.sh
     - cd repo folder (home/username/repo/)
     - nano .env
     - paste EMAIL_USER=""
             EMAIL_PASS=""
             DJANGO_SECRET_KEY = ""
-    - go back to folder where deploy.sh exists (probably one folder up /home/username/)
-    - run ./deploy.sh
+
