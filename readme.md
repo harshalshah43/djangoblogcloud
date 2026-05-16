@@ -39,3 +39,9 @@
 
 - Push changes to the dev branch to the repo
 - run ./deploy.sh again
+
+
+### ALWAYS NOTE
+
+.env file must be inside the repo folder where manage.py file exists not where settings.py file exists
+virtual env must contain same python version in deploy.sh that you are using while selecting the python version during the webapp creating process on pythonanywhere web console
