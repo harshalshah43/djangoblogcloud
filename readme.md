@@ -3,6 +3,7 @@
 ### First deployment run
 
 - Create a new web app
+- On PythonAnywhere Console
 - Manual configuration
 - Select my python<version> **very important must be same as python version mentioned in deploy.sh > create virtual env step, prefer 3.13 in both
 - choose next and create app
