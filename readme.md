@@ -1,4 +1,6 @@
-## How to dpeloy on pythonanywhere
+## How to deploy on pythonanywhere
+
+### First deployment run
 
 - Create a new web app
 - Manual configuration
@@ -33,3 +35,7 @@
             EMAIL_PASS=""
             DJANGO_SECRET_KEY = ""
 
+### CI/CD process
+
+- Push changes to the dev branch to the repo
+- run ./deploy.sh again
