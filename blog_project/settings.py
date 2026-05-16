@@ -34,7 +34,7 @@ if MODE != 'dev':
     ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
 else:
     ALLOWED_HOSTS = [
-        "yourusername.pythonanywhere.com"
+        "hns499.pythonanywhere.com"
     ]
 
 
