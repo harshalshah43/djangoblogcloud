@@ -9,6 +9,7 @@ echo "==============================="
 PROJECT_DIR="$HOME/djangoblogcloud"
 REPO_URL="https://github.com/harshalshah43/djangoblogcloud.git"
 VENV_DIR="$HOME/.virtualenvs/myenv"
+BRANCH_NAME= "dev"
 
 echo ""
 echo "Checking project repository..."
@@ -18,7 +19,7 @@ if [ ! -d "$PROJECT_DIR/.git" ]; then
     echo "Repository not found."
     echo "Cloning repository..."
 
-    git clone -b dev "$REPO_URL" "$PROJECT_DIR"
+    git clone -b "$BRANCH_NAME" "$REPO_URL" "$PROJECT_DIR"
 else
     echo "Repository already exists."
 fi
