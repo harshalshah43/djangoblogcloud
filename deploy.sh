@@ -9,7 +9,7 @@ echo "==============================="
 PROJECT_DIR="$HOME/djangoblogcloud"
 REPO_URL="https://github.com/harshalshah43/djangoblogcloud.git"
 VENV_DIR="$HOME/.virtualenvs/myenv"
-BRANCH_NAME= "dev"
+BRANCH_NAME="dev"
 
 echo ""
 echo "Checking project repository..."
@@ -47,7 +47,7 @@ source "$VENV_DIR/bin/activate"
 
 echo ""
 echo "Pulling latest code..."
-git pull origin dev
+git pull origin $BRANCH_NAME
 
 echo ""
 echo "Checking dependencies..."
@@ -67,7 +67,7 @@ if [ -f requirements.txt ]; then
     if [ "$CURRENT_HASH" != "$OLD_HASH" ]; then
         echo "requirements.txt changed."
         echo "Installing dependencies..."
-
+        pip install --upgrade pip
         pip install -r requirements.txt
 
         echo "$CURRENT_HASH" > "$REQ_HASH_FILE"
